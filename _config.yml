@@ -68,7 +68,7 @@ duoshuo_share: true                     # set to false if you want to use Commen
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "I want to be a photographer, programmer."
+sidebar-about-description: "ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴍʏ ʟɪᴛᴛʟᴇ ᴄᴏʀɴᴇʀ ᴏғ ᴛʜᴇ ᴡᴏʀʟᴅ"
 sidebar-avatar: /img/dada.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
