@@ -184,16 +184,6 @@ tags:
 
 
 
-
-
-
-### ⌛️待办
-
-* 仓库的description和readme.md
-* 上面的导航是怎么设置的
-
-
-
 ### 参考
 
 [Steve Losh Blog](https://stevelosh.com/blog/)
