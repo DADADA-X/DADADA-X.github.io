@@ -129,7 +129,7 @@ tags:
 
 * 条件判断语句
 
-  ```
+  ```html
   {% if site.title == 'Awesome Shoes' %}     
      These shoes are awesome! 
   {% endif %}  
@@ -137,7 +137,7 @@ tags:
 
 * 循环迭代
 
-  ```
+  ```html
   {% for product in collection.products %}    
    {{ product.title }} 
   {% endfor %}
