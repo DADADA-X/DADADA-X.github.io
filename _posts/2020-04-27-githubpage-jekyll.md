@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Welcome to Hux Blog"
+title:      "github page 搭建记录"
 subtitle:   " \"Hello World, Hello Blog\""
 date:       2020-04-27 15:00:00
 author:     "DadaX"
