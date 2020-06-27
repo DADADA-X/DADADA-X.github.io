@@ -5,6 +5,8 @@ subtitle:   " \"Hello World, Hello Blog\""
 date:       2020-04-27 15:00:00
 author:     "DadaX"
 header-img: "img/post-bg-2015.jpg"
+tags:
+    - 其他
 ---
 
 
@@ -13,11 +15,39 @@ header-img: "img/post-bg-2015.jpg"
 
 
 
-### About Jekyll
+## About Jekyll
 
 **Jekyll** is a static site generator with built-in support for GitHub Pages.
 
 **依赖：**ruby gem（mac用户安装Xcode 和 Command-Line Tools后就有了；**windows用户不建议安装jekyll**）
+
+## 各文件含义
+
+一个较简单的 Jekyll 项目的文件结构如下：
+
+```text
+.
+├── _config.yml				# 全局配置文件
+└── _includes					# layout中的公共部分，可以加载这部分到布局或文章中方便重用。\
+│   ├── footer.html		# 在 layout 中通过 {%include footer.html%} 引入
+│   ├── header.html
+│   └── nav.html
+├── _layouts					# 布局，存放页面模版。在yaml头信息种进行选择。（{{ content }}标签内容填充）
+│   ├── default.html
+│   ├── keynote.html
+│   ├── page.html
+│   └── post.html
+├── _posts						# 文章，格式：YYYY-mm-dd-title.md。Jekyll会根据YAML头信息自动将它们进行转换
+│   └── 2020-04-26-welcome-to-jekyll.markdown
+├── _site							# Jekyll完成转换生成的页面，格式为：/YYYY/mm/dd/title.html
+│   └── ……						# 其他一些css, image, favicon.icon都将被完全拷贝到生成的site中。
+├── index.html				# 首页，任何一目录都会查找index.html以生成html。
+├── about.md					# Github Pages 会将所有非下划线开头的路径中的 markdown 文件转为对应名字的网页。
+├── README.md
+└── ……								# js, css, img 等，是一些原生的资源文件
+```
+
+## Steps
 
 ### 第〇步 安装jekyll
 
@@ -66,86 +96,7 @@ tags:
 ---
 ```
 
-### 各文件含义
-
-* `_layouts` （存放页面模板，md或html文件的内容会填充模板）
-
-* `_sass`（存放样式表）
-
-* `_includes` （可以复用在其它页面被include的html页面）
-
-* `_posts`（博客文章页面）
-
-* `assets`（原生的资源文件）
-
-* - `js`
-  - `css`
-  - `image`
-
-* `_config.yml` （全局配置文件）
-
-* `index.html, index.md, README.md` （首页index.html优先级最高，如果没有index，默认启用README.md文件）
-
-* `自定义文件和目录`
-
-
-
-一个较简单的 Jekyll 项目的文件结构如下：
-
-```text
-.
-├── _config.yml
-├── _posts
-│   └── 2020-04-26-welcome-to-jekyll.markdown
-├── about.md
-├── readme.md
-├── _layouts
-│   ├── default.html
-│   ├── post.html
-│   └── page.html
-└── _includes
-    ├── footer.html
-    └── header.html
-```
-
-- `/_config.yml`：配置数据。
-- `_posts`：文章。格式：`YYYY-mm-dd-title.md`（如果这些文件中包含YAML头信息部分，Jekyll 就会自动将它们进行转换。）
-- `about.md`
-- `readme.md`
-- `_layouts`：布局。是文章外部的模版，可在yaml头信息种进行选择。（标签 `{{ content }}` 可以将content插入页面中。）
-- `_includes`：通常是 layout 中抽取出的公共部分，可以加载这部分到布局或文章中方便重用。在 layout 中通过如 {`%include footer.html %`} 引入
-- `_site`：Jekyll 完成转换，就会将生成的页面放在这里（默认）。格式为：`/YYYY/mm/dd/title.html`，其他一些css, image, favicon.icon都将被完全靠背到生成的site中。
-- `index.html`：任何一目录都会查找索引页用以生成html。
-
-* 其它页：如 `about.md`。Github Pages 会将所有非下划线开头的路径中的 markdown 文件转为对应名字的网页。
-* 网页模板：带 {`% if true %`} {`{ var | filter }`} {`% endif %`} 一类标记的html或md
-
----
-
-* 变量 `{{ variable }}` 被嵌入在页面中，会在静态页面生成的时候被替换成具体的数值。
-* 常用的全局变量对象有：`site` 和 `page`。
-  * `site`对象对应的就是网站范围，自定义变量放在`_config.yml`中。
-  * `page`对象对应的是单个页面，自定义变量放在每个页面的最开头。
-
-* 条件判断语句
-
-  ```html
-  {% if site.title == 'Awesome Shoes' %}     
-     These shoes are awesome! 
-  {% endif %}  
-  ```
-
-* 循环迭代
-
-  ```html
-  {% for product in collection.products %}    
-   {{ product.title }} 
-  {% endfor %}
-  ```
-
-  
-
-### 问题
+## 遇到的问题
 
 1. **安装`jekyll`**
 
@@ -182,9 +133,37 @@ tags:
      ruby -v # 查看版本，已经是新的了，继续gem install，安装成功
      ```
 
+2. 网页模版含义：
 
 
-### 参考
+* 网页模版：带 {`% if true %`} {`{ var | filter }`} {`% endif %`} 一类标记的html或md
+
+* 变量 `{{ variable }}` 被嵌入在页面中，会在静态页面生成的时候被替换成具体的数值。
+
+* 常用的全局变量对象有：`site` 和 `page`。
+
+  * `site`对象对应的就是网站范围，自定义变量放在`_config.yml`中。
+  * `page`对象对应的是单个页面，自定义变量放在每个页面的最开头。
+
+* 条件判断语句
+
+  ```html
+  {% if site.title == 'Awesome Shoes' %}     
+     These shoes are awesome! 
+  {% endif %}  
+  ```
+
+* 循环迭代
+
+  ```html
+  {% for product in collection.products %}    
+   {{ product.title }} 
+  {% endfor %}
+  ```
+
+  
+
+## 参考
 
 [Steve Losh Blog](https://stevelosh.com/blog/)
 
